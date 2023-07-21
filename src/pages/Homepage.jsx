@@ -1,16 +1,7 @@
 import Header from "../Components/Header";
-import axios from "axios";
 import Product from "./Product";
 
 const Homepage = () => {
-  const getProducts = async () => {
-    const response = await axios.get(
-      "https://fakestoreapi.com/products?limit=5"
-    );
-    console.log(response.data);
-    
-    
-  };
   return (
     <div className="layout min-h-[100vh] bg-[var(--background-color)]">
       <div className="container mx-auto">
@@ -26,10 +17,7 @@ const Homepage = () => {
               impedit facere odio earum perferendis quaerat possimus
               repellendus.
             </p>
-            <button
-              onClick={getProducts}
-              className="bg-orange-500 text-white px-5 py-2 rounded-md"
-            >
+            <button className="bg-orange-500 text-white px-5 py-2 rounded-md">
               Shop Now
             </button>
           </section>
@@ -40,8 +28,10 @@ const Homepage = () => {
             className="block w-[50%] "
           />
         </div>
-      <Product/>
-         
+        <Product
+          api="https://fakestoreapi.com/products?limit=3"
+          text="showcase"
+        />
       </div>
     </div>
   );

@@ -1,44 +1,62 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "../Components/Card"; // Assuming you have a Card component
 
-import React, { useState } from 'react';
-import axios from 'axios';
+const ProductPage = () => {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-const SearchPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  // Fetch data from the API on component mount
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-  const handleSearch = () => {
-    // Fetch search results from the API endpoint
-    axios.get(`https://fakestoreapi.com/products?title=${searchTerm}`)
-      .then(response => setSearchResults(response.data))
-      .catch(error => console.error(error));
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("https://fakestoreapi.com/products");
+      setProducts(response.data); // Assuming the API response is an array of product objects
+      setFilteredProducts(response.data); // Set initial filtered products
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
-  const filteredProducts = searchResults.filter((product) => {
-    return product.title.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+
+  // Filter products based on the search term
  
-
   return (
-    <div className='min-h-[100vh] text-center mt-[4rem]'>
-      <h1 className='text-center bg-orange-500 p-4 m-5 rounded-md'
-    >Search Page</h1>
-      <input className='border-2 border-gray-400 rounded-md p-1 m-2'
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button
-      className='bg-orange-500 text-white px-5 py-2 rounded-md'
-       onClick={handleSearch}>Search</button>
+    <div>
+      
+      <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
+        Products
+      </h1>
+      <div className="searchBar text-center ">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(event) => {
+            setSearchTerm(event.target.value.toLocaleLowerCase());
+          }
+          }
+          className="border border-gray-300 rounded-md px-2 py-1 w-[20rem]"
+        />
+        Search
+      </div>
 
-      {filteredProducts.map(product => (
-        <div key={product.id}>
-          <img src={product.image} alt={product.title} />
-          <h3>{product.title}</h3>
-          <p>Price: ${product.price}</p>
-        </div>
-      ))}
+      <div className="grid grid-cols-3  justify-center gap-2 w-[80%]  mx-auto">
+        {filteredProducts.filter((item) => {
+                return searchTerm.toLowerCase() === ""
+                  ? item
+                  : item.title.toLowerCase().includes(searchTerm);
+              })
+              .map((product) => (
+          <Card product={product} />
+        ))}
+
+      </div>
     </div>
   );
 };
 
-export default SearchPage;
+export default ProductPage;
