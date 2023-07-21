@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../Components/Card"; // Assuming you have a Card component
+import Headers from "../Components/Header";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,7 @@ const ProductPage = () => {
  
   return (
     <div>
+       <Headers />
       
       <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
         Products

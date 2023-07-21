@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../Components/Card";
+import Headers from "../Components/Header";
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState(null);
-  // const productId = match.params.id; // Assuming the product ID is available as a URL parameter
+  const [product, setProduct] = useState("");
 
   useEffect(() => {
     fetchProductDetails();
   }, []);
 
+  const id = window.location.pathname.split("/")[2];
   const fetchProductDetails = async () => {
     try {
-      const response = await axios.get(`https://fakestoreapi.com/products/1`);
+      const response = await axios.get(
+        `https://fakestoreapi.com/products/${id}`
+      );
       setProduct(response.data); // Assuming the API response is an object representing the product details
     } catch (error) {
       console.error("Error fetching product details:", error);
@@ -25,16 +28,15 @@ const ProductDetail = () => {
   }
 
   return (
-    <div >
-    
+    <div>
+      <Headers />
       <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
         Product Detail View
       </h1>
-      <div className="w-[40%]  mx-auto p-5" >
+      <div className="w-[40%]  mx-auto p-5">
         <Card product={product} />
       </div>
-      </div>
-
+    </div>
   );
 };
 

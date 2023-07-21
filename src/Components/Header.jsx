@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <>
@@ -6,9 +8,15 @@ const Header = () => {
           onlineSTORE
         </h1>
         <ul className="flex gap-4 text-xl font-semibold">
-          <a href="./">Home</a>
-          <a href="./">Products</a>
-          <a href="./">About</a>
+          <Link to="/">
+            <li className="hover:text-orange-500">Home</li>
+          </Link>
+          <Link to="/search">
+            <li className="hover:text-orange-500">Search</li>
+          </Link>
+          <Link to="/about">
+            <li className="hover:text-orange-500">About</li>
+          </Link>
         </ul>
       </nav>
     </>

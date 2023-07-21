@@ -1,7 +1,10 @@
 import React from "react";
 import ProductDetail from "../pages/ProductDetail";
 
+import { useNavigate } from "react-router-dom";
+
 const Card = (props) => {
+  const navigate = useNavigate();
   return (
     <div
       key={props.product.id}
@@ -14,7 +17,12 @@ const Card = (props) => {
       />
       <h3 className="w-[20ch]">{props.product.title}</h3>
       <p>Price: ${props.product.price}</p>
-      <button className="bg-orange-500 text-white px-5 py-2 rounded-md">
+      <button
+        onClick={() => {
+          navigate(`/products/${props.product.id}`);
+        }}
+        className="bg-orange-500 text-white px-5 py-2 rounded-md"
+      >
         {props.buttonText || "Buy Now"}
       </button>
     </div>

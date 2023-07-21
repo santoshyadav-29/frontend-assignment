@@ -15,6 +15,7 @@ const Product = (props) => {
 
   return (
     <div>
+     
       <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
         {props.text || "Products"}
       </h1>

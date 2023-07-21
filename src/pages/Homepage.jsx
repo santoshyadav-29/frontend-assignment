@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import Product from "./Product";
+import ProductDetail from "./ProductDetail";
 
 const Homepage = () => {
   return (
@@ -33,6 +34,7 @@ const Homepage = () => {
           text="showcase"
         />
       </div>
+      <ProductDetail />
     </div>
   );
 };
