@@ -1,14 +1,16 @@
 import Homepage from "./pages/Homepage"
-import Product from "./pages/Product"
-import Search from "./pages/Search"
+import SearchPage from "./pages/SearchPage"
+
+
 
 
 const App = () => {
   return (
     <div>
       <Homepage />
-      <Search />
-      <Product />
+      <SearchPage />
+      
+      
     </div>
   )
 }

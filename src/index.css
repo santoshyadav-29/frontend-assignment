@@ -7,3 +7,7 @@
   --text-color:#2F2105;
   --strong-text:#FF902B;
 }
+*{
+  color:var(--text-color);
+ 
+}
