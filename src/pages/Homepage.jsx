@@ -10,9 +10,9 @@ const Homepage = () => {
     <div className="layout min-h-[100vh] bg-[var(--background-color)]">
       <div className="container mx-auto">
         <Header />
-        <div className="hero-section flex  justify-center ">
+        <div className="hero-section   md:flex justify-center ">
           <section className="flex justify-center items- flex-col gap-5 ">
-            <h1 className=" text-start text-5xl font-bold w-[20ch] ">
+            <h1 className=" text-start text-5xl font-bold max-w-[20ch] ">
               Simplyfing <b className="text-orange-500">Market</b> Through
               E-Commerse
             </h1>
