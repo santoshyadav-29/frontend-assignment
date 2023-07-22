@@ -33,4 +33,8 @@ or
 - Search Page: Include a search bar where users can input the name of a product. On form submission, display a list of search results (products) fetched from the API endpoint.
   
 - Product Details Page: When a user clicks on a product from the search results or product list, they should be redirected to a page that displays detailed information about the product, including the product image, name, price, and description.
+  
+- Responsive UI to improve user experience on mobile devices.
+
+
 
