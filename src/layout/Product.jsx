@@ -15,11 +15,10 @@ const Product = (props) => {
 
   return (
     <div>
-     
       <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
         {props.text || "Products"}
       </h1>
-      <div className="grid grid-cols-3  justify-center gap-2 w-[80%]  mx-auto">
+      <div className="grid grid-cols-2 justify-center gap-2 w-[80%]  mx-auto md:grid-cols-3  ">
         {products.map((product) => (
           <Card product={product} />
         ))}

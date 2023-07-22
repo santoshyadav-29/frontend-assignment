@@ -18,7 +18,11 @@ const Homepage = () => {
               impedit facere odio earum perferendis quaerat possimus
               repellendus.
             </p>
-            <button className="bg-orange-500 text-white px-5 py-2 rounded-md">
+            <button
+              className="
+             bg-orange-400 hover:bg-orange-500
+              text-white px-5 py-2 rounded-md w-[20ch]"
+            >
               Shop Now
             </button>
           </section>
@@ -26,7 +30,7 @@ const Homepage = () => {
           <img
             src="./background.png"
             alt="onlineSTORE"
-            className="block w-[50%] "
+            className="hidden lg:block w-[50%]"
           />
         </div>
         <Product

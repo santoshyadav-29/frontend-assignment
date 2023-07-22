@@ -1,6 +1,6 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "../Components/Card"; 
+import Card from "../Components/Card";
 import Headers from "../Components/Header";
 import Footer from "../Components/Footer";
 
@@ -43,7 +43,7 @@ const ProductPage = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-3  justify-center gap-2 w-[80%]  mx-auto">
+      <div className="grid grid-cols-1  justify-center gap-2 w-[80%]  mx-auto md:grid-cols-2 lg:grid-cols-3">
         {filteredProducts // Filter products based on the search term
           .filter((item) => {
             return searchTerm.toLowerCase() === ""
