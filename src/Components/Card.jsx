@@ -37,9 +37,9 @@ const Card = (props) => {
         onClick={() => {
           navigate(`/products/${props.product.id}`);
         }}
-        className="bg-orange-500 text-white px-5 py-2 rounded-md"
+        className="bg-orange-500 text-white px-5 py-2 rounded-md hover:bg-orange-600"
       >
-        {props.buttonText || "Buy Now"}
+        {props.buttonText || "View Details"}
       </button>
     </div>
   );

@@ -43,7 +43,7 @@ const Homepage = () => {
 
         <Product
           api="https://fakestoreapi.com/products?limit=3"
-          text="showcase"
+          text="Featured Products"
         />
       </div>
       <Footer />
