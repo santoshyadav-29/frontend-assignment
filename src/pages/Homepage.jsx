@@ -1,6 +1,6 @@
+import Footer from "../Components/Footer";
 import Header from "../Components/Header";
-import Product from "./Product";
-import ProductDetail from "./ProductDetail";
+import Product from "../layout/Product";
 
 const Homepage = () => {
   return (
@@ -34,7 +34,7 @@ const Homepage = () => {
           text="showcase"
         />
       </div>
-      <ProductDetail />
+      <Footer />
     </div>
   );
 };

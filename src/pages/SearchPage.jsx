@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "../Components/Card"; // Assuming you have a Card component
+import Card from "../Components/Card"; 
 import Headers from "../Components/Header";
+import Footer from "../Components/Footer";
 
 const ProductPage = () => {
-  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -16,47 +16,45 @@ const ProductPage = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
-      setProducts(response.data); // Assuming the API response is an array of product objects
+
       setFilteredProducts(response.data); // Set initial filtered products
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  // Filter products based on the search term
- 
   return (
     <div>
-       <Headers />
-      
-      <h1 className="text-center bg-orange-500 p-4 m-5 mt-[10rem] rounded-md">
-        Products
-      </h1>
-      <div className="searchBar text-center ">
+      <Headers />
+
+      <h1 className="text-center bg-orange-500 m-5 p-4 rounded-md">Products</h1>
+      <div className="searchBar text-center  m-2">
         <input
           type="text"
           placeholder="Search products..."
           value={searchTerm}
           onChange={(event) => {
             setSearchTerm(event.target.value.toLocaleLowerCase());
-          }
-          }
-          className="border border-gray-300 rounded-md px-2 py-1 w-[20rem]"
+          }}
+          className=" rounded-md px-2 py-1 w-[20rem]"
         />
-        Search
+        <button className="bg-orange-500 text-white mx-2 px-5 py-2 rounded-md">
+          Search
+        </button>
       </div>
 
       <div className="grid grid-cols-3  justify-center gap-2 w-[80%]  mx-auto">
-        {filteredProducts.filter((item) => {
-                return searchTerm.toLowerCase() === ""
-                  ? item
-                  : item.title.toLowerCase().includes(searchTerm);
-              })
-              .map((product) => (
-          <Card product={product} />
-        ))}
-
+        {filteredProducts // Filter products based on the search term
+          .filter((item) => {
+            return searchTerm.toLowerCase() === ""
+              ? item
+              : item.title.toLowerCase().includes(searchTerm);
+          })
+          .map((product) => (
+            <Card product={product} />
+          ))}
       </div>
+      <Footer />
     </div>
   );
 };
