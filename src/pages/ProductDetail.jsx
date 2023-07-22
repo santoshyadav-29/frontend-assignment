@@ -35,7 +35,7 @@ const ProductDetail = () => {
         Product Detail View
       </h1>
       <div className="w-[40%]  mx-auto p-5">
-        <Card product={product} />
+        <Card Detail={true} product={product} />
       </div>
       <Footer />
     </div>
