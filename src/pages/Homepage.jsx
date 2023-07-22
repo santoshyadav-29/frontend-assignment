@@ -1,9 +1,12 @@
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Product from "../layout/Product";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const navigate = useNavigate();
   return (
+
     <div className="layout min-h-[100vh] bg-[var(--background-color)]">
       <div className="container mx-auto">
         <Header />
@@ -18,7 +21,11 @@ const Homepage = () => {
               impedit facere odio earum perferendis quaerat possimus
               repellendus.
             </p>
-            <button
+            <button onClick={
+              () => {
+                navigate("/search")
+              }
+            }
               className="
              bg-orange-400 hover:bg-orange-500
               text-white px-5 py-2 rounded-md w-[20ch]"
@@ -33,6 +40,7 @@ const Homepage = () => {
             className="hidden lg:block w-[50%]"
           />
         </div>
+
         <Product
           api="https://fakestoreapi.com/products?limit=3"
           text="showcase"
